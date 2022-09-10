@@ -1,0 +1,303 @@
+function Model.init 0
+push constant 30
+pop static 1
+push constant 11
+pop static 2
+push static 1
+push static 2
+call Math.multiply 2
+pop static 0
+push constant 0
+return
+function Model.new 1
+push constant 2
+call Memory.alloc 1
+pop pointer 0
+push static 0
+call Array.new 1
+pop this 0
+push constant 0
+pop local 0
+label Model.0
+push local 0
+push static 0
+lt
+not
+if-goto Model.1
+push local 0
+push this 0
+add
+push local 0
+call Square.new 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 0
+push constant 1
+add
+pop local 0
+goto Model.0
+label Model.1
+push pointer 0
+return
+function Model.getColumns 0
+push static 1
+return
+function Model.getRows 0
+push static 2
+return
+function Model.getId 0
+push argument 0
+push constant 0
+lt
+not
+if-goto Model.2
+push constant 1
+neg
+return
+goto Model.3
+label Model.2
+label Model.3
+push argument 1
+push constant 0
+lt
+not
+if-goto Model.4
+push constant 1
+neg
+return
+goto Model.5
+label Model.4
+label Model.5
+push argument 0
+push static 1
+push constant 1
+sub
+gt
+not
+if-goto Model.6
+push constant 1
+neg
+return
+goto Model.7
+label Model.6
+label Model.7
+push argument 1
+push static 2
+push constant 1
+sub
+gt
+not
+if-goto Model.8
+push constant 1
+neg
+return
+goto Model.9
+label Model.8
+label Model.9
+push argument 1
+push static 1
+call Math.multiply 2
+push argument 0
+add
+return
+function Model.getColumn 0
+push argument 0
+push static 1
+push argument 0
+call Model.getRow 1
+call Math.multiply 2
+sub
+return
+function Model.getRow 0
+push argument 0
+push static 1
+call Math.divide 2
+return
+function Model.setBombs 4
+push argument 0
+pop pointer 0
+push argument 1
+pop this 1
+push constant 0
+pop local 0
+push argument 2
+push static 0
+push constant 1
+sub
+call Random.new 2
+pop local 2
+label Model.10
+push local 0
+push argument 1
+lt
+not
+if-goto Model.11
+push local 2
+call Random.next 1
+pop local 1
+push local 1
+push this 0
+add
+pop pointer 1
+push that 0
+pop local 3
+push local 3
+call Square.isBomb 1
+not
+not
+if-goto Model.12
+push local 3
+push constant 0
+not
+call Square.setBomb 2
+pop temp 0
+push local 0
+push constant 1
+add
+pop local 0
+goto Model.13
+label Model.12
+push local 2
+call Random.dispose 1
+pop temp 0
+push local 1
+push constant 757
+add
+push static 0
+push constant 1
+sub
+call Random.new 2
+pop local 2
+label Model.13
+goto Model.10
+label Model.11
+push local 2
+call Random.dispose 1
+pop temp 0
+push constant 0
+return
+function Model.getBombs 0
+push argument 0
+pop pointer 0
+push this 1
+return
+function Model.getSquareById 0
+push argument 0
+pop pointer 0
+push argument 1
+push constant 0
+lt
+not
+if-goto Model.14
+push constant 0
+return
+goto Model.15
+label Model.14
+label Model.15
+push argument 1
+push static 0
+gt
+not
+if-goto Model.16
+push constant 0
+return
+goto Model.17
+label Model.16
+label Model.17
+push argument 1
+push this 0
+add
+pop pointer 1
+push that 0
+return
+function Model.getSquare 0
+push argument 0
+pop pointer 0
+push argument 1
+push constant 0
+lt
+not
+if-goto Model.18
+push constant 0
+return
+goto Model.19
+label Model.18
+label Model.19
+push argument 2
+push constant 0
+lt
+not
+if-goto Model.20
+push constant 0
+return
+goto Model.21
+label Model.20
+label Model.21
+push argument 1
+push static 1
+push constant 1
+sub
+gt
+not
+if-goto Model.22
+push constant 0
+return
+goto Model.23
+label Model.22
+label Model.23
+push argument 2
+push static 2
+push constant 1
+sub
+gt
+not
+if-goto Model.24
+push constant 0
+return
+goto Model.25
+label Model.24
+label Model.25
+push argument 1
+push argument 2
+call Model.getId 2
+push this 0
+add
+pop pointer 1
+push that 0
+return
+function Model.dispose 2
+push argument 0
+pop pointer 0
+push constant 0
+pop local 0
+label Model.26
+push local 0
+push static 0
+lt
+not
+if-goto Model.27
+push local 0
+push this 0
+add
+pop pointer 1
+push that 0
+pop local 1
+push local 1
+call Square.dispose 1
+pop temp 0
+push local 0
+push constant 1
+add
+pop local 0
+goto Model.26
+label Model.27
+push this 0
+call Array.dispose 1
+pop temp 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return

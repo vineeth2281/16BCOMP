@@ -1,0 +1,49 @@
+class Main {
+    
+    function void main() {
+        var Array arr;
+        var int size, i, j, temp;
+        var int i;
+
+        do Output.printString("NUMBER SORTER");
+        do Output.println();
+        let size = Keyboard.readInt("Enter the number of integers: ");
+        let i = 0;
+        let arr = Array.new(size);
+        
+        while (i < size) {
+            let arr[i] = Keyboard.readInt("Enter an integer: ");
+            let i = i + 1;
+        }
+        
+
+        let i = 0;
+
+        while (i < size) {
+            
+            let j = 0;
+            while (j < (size - i - 1)) {
+                //do Output.printString("IN WHILE");
+                if (arr[j] > arr[j+1]) {
+                    let temp = arr[j];
+                    let arr[j] = arr[j+1];
+                    let arr[j+1] = temp;
+                }
+                let j = j + 1;
+            }
+            let i = i + 1;
+        }
+
+        let i = 0;
+
+        while (i < size) {
+            do Output.printInt(arr[i]);
+            do Output.printString(" ");
+            let i = i + 1;
+        }
+        do Output.println();
+
+        return;
+    }
+
+}

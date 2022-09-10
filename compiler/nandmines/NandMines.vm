@@ -1,0 +1,1734 @@
+function NandMines.init 0
+push constant 50
+pop static 0
+push constant 18
+call String.new 1
+push constant 80
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 39
+call String.appendChar 2
+push constant 104
+call String.appendChar 2
+push constant 39
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 102
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 104
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 108
+call String.appendChar 2
+push constant 112
+call String.appendChar 2
+pop static 1
+push constant 29
+call String.new 1
+push constant 80
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 39
+call String.appendChar 2
+push constant 69
+call String.appendChar 2
+push constant 83
+call String.appendChar 2
+push constant 67
+call String.appendChar 2
+push constant 39
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 117
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 103
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 109
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+pop static 2
+push constant 29
+call String.new 1
+push constant 66
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 77
+call String.appendChar 2
+push constant 33
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 40
+call String.appendChar 2
+push constant 112
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 39
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 39
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 41
+call String.appendChar 2
+pop static 3
+push constant 16
+call String.new 1
+push constant 67
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 103
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 117
+call String.appendChar 2
+push constant 108
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 33
+call String.appendChar 2
+pop static 4
+call Model.init 0
+pop temp 0
+call View.init 0
+pop temp 0
+push constant 0
+return
+function NandMines.new 0
+push constant 6
+call Memory.alloc 1
+pop pointer 0
+push pointer 0
+call NandMines.restart 1
+pop temp 0
+push pointer 0
+return
+function NandMines.run 6
+call NandMines.init 0
+pop temp 0
+push constant 0
+pop local 1
+push constant 0
+not
+pop local 2
+call NandMines.new 0
+pop local 4
+push constant 0
+pop local 3
+label NandMines.0
+push local 1
+not
+not
+if-goto NandMines.1
+label NandMines.2
+push local 0
+push constant 0
+eq
+not
+if-goto NandMines.3
+push local 5
+push constant 1
+add
+pop local 5
+call Keyboard.keyPressed 0
+pop local 0
+goto NandMines.2
+label NandMines.3
+label NandMines.4
+call Keyboard.keyPressed 0
+push constant 0
+eq
+not
+not
+if-goto NandMines.5
+goto NandMines.4
+label NandMines.5
+push local 3
+not
+if-goto NandMines.6
+push local 0
+push constant 140
+eq
+not
+if-goto NandMines.8
+push local 4
+call NandMines.paintGameBoard 1
+pop temp 0
+push constant 0
+pop local 3
+goto NandMines.9
+label NandMines.8
+label NandMines.9
+goto NandMines.7
+label NandMines.6
+push local 2
+not
+if-goto NandMines.10
+push local 4
+push local 5
+call NandMines.randomizeBombs 2
+pop temp 0
+push constant 0
+pop local 2
+goto NandMines.11
+label NandMines.10
+label NandMines.11
+push local 0
+push constant 81
+eq
+push local 0
+push constant 113
+eq
+or
+not
+if-goto NandMines.12
+push constant 0
+not
+pop local 1
+goto NandMines.13
+label NandMines.12
+label NandMines.13
+push local 0
+push constant 82
+eq
+push local 0
+push constant 114
+eq
+or
+not
+if-goto NandMines.14
+push local 4
+call NandMines.restart 1
+pop temp 0
+push constant 0
+not
+pop local 2
+goto NandMines.15
+label NandMines.14
+label NandMines.15
+push local 0
+push constant 72
+eq
+push local 0
+push constant 104
+eq
+or
+not
+if-goto NandMines.16
+push local 4
+call NandMines.showHelpDialog 1
+pop temp 0
+push constant 0
+not
+pop local 3
+goto NandMines.17
+label NandMines.16
+label NandMines.17
+push local 0
+push constant 130
+eq
+not
+if-goto NandMines.18
+push local 4
+push constant 0
+call NandMines.moveHorizontal 2
+pop temp 0
+goto NandMines.19
+label NandMines.18
+label NandMines.19
+push local 0
+push constant 131
+eq
+not
+if-goto NandMines.20
+push local 4
+push constant 0
+call NandMines.moveVertical 2
+pop temp 0
+goto NandMines.21
+label NandMines.20
+label NandMines.21
+push local 0
+push constant 132
+eq
+not
+if-goto NandMines.22
+push local 4
+push constant 0
+not
+call NandMines.moveHorizontal 2
+pop temp 0
+goto NandMines.23
+label NandMines.22
+label NandMines.23
+push local 0
+push constant 133
+eq
+not
+if-goto NandMines.24
+push local 4
+push constant 0
+not
+call NandMines.moveVertical 2
+pop temp 0
+goto NandMines.25
+label NandMines.24
+label NandMines.25
+push local 0
+push constant 129
+eq
+push local 0
+push constant 139
+eq
+or
+not
+if-goto NandMines.26
+push local 4
+call NandMines.clearSquare 1
+pop temp 0
+goto NandMines.27
+label NandMines.26
+label NandMines.27
+push local 0
+push constant 128
+eq
+push local 0
+push constant 138
+eq
+or
+not
+if-goto NandMines.28
+push local 4
+call NandMines.toggleFlag 1
+pop temp 0
+goto NandMines.29
+label NandMines.28
+label NandMines.29
+label NandMines.7
+push constant 0
+pop local 0
+goto NandMines.0
+label NandMines.1
+push local 4
+call NandMines.dispose 1
+pop temp 0
+push constant 0
+return
+function NandMines.restart 0
+push argument 0
+pop pointer 0
+push this 0
+push constant 0
+eq
+not
+not
+if-goto NandMines.30
+push this 0
+call Model.dispose 1
+pop temp 0
+goto NandMines.31
+label NandMines.30
+label NandMines.31
+call Model.new 0
+pop this 0
+push constant 0
+pop this 1
+push constant 0
+pop this 2
+push constant 0
+pop this 3
+push constant 0
+pop this 4
+call Model.getRows 0
+call Model.getColumns 0
+call Math.multiply 2
+pop this 5
+call View.drawFrame 0
+pop temp 0
+push pointer 0
+call NandMines.paintGameBoard 1
+pop temp 0
+push constant 0
+return
+function NandMines.randomizeBombs 0
+push argument 0
+pop pointer 0
+push this 0
+push static 0
+push argument 1
+call Model.setBombs 3
+pop temp 0
+push constant 0
+return
+function NandMines.showHelpDialog 0
+push argument 0
+pop pointer 0
+call View.showHelp 0
+pop temp 0
+push static 2
+call View.showMessage 1
+pop temp 0
+push constant 0
+return
+function NandMines.paintGameBoard 0
+push argument 0
+pop pointer 0
+push pointer 0
+call NandMines.paintSquares 1
+pop temp 0
+push pointer 0
+call NandMines.paintSelected 1
+pop temp 0
+push static 1
+call View.showMessage 1
+pop temp 0
+push constant 0
+return
+function NandMines.moveHorizontal 0
+push argument 0
+pop pointer 0
+push pointer 0
+push this 2
+push this 3
+push argument 1
+call NandMines.moveHorizontalStartingIn 4
+pop temp 0
+push constant 0
+return
+function NandMines.moveHorizontalStartingIn 2
+push argument 0
+pop pointer 0
+push this 1
+not
+if-goto NandMines.32
+push constant 0
+return
+goto NandMines.33
+label NandMines.32
+label NandMines.33
+push argument 3
+not
+if-goto NandMines.34
+push argument 1
+push constant 1
+add
+pop local 1
+goto NandMines.35
+label NandMines.34
+push argument 1
+push constant 1
+sub
+pop local 1
+label NandMines.35
+label NandMines.36
+push local 1
+call Model.getColumns 0
+lt
+push local 1
+push constant 1
+neg
+gt
+and
+not
+if-goto NandMines.37
+push this 0
+push local 1
+push argument 2
+call Model.getSquare 3
+pop local 0
+push local 0
+call Square.isHidden 1
+not
+if-goto NandMines.38
+push pointer 0
+push this 2
+push this 3
+call NandMines.paintSquare 3
+pop temp 0
+push local 1
+pop this 2
+push argument 2
+pop this 3
+push pointer 0
+call NandMines.paintSelected 1
+pop temp 0
+push constant 0
+return
+goto NandMines.39
+label NandMines.38
+label NandMines.39
+push argument 3
+not
+if-goto NandMines.40
+push local 1
+push constant 1
+add
+pop local 1
+goto NandMines.41
+label NandMines.40
+push local 1
+push constant 1
+sub
+pop local 1
+label NandMines.41
+goto NandMines.36
+label NandMines.37
+push argument 3
+not
+if-goto NandMines.42
+push argument 2
+call Model.getRows 0
+push constant 1
+sub
+eq
+not
+if-goto NandMines.44
+push constant 0
+pop argument 2
+goto NandMines.45
+label NandMines.44
+push argument 2
+push constant 1
+add
+pop argument 2
+label NandMines.45
+push pointer 0
+push constant 1
+neg
+push argument 2
+push argument 3
+call NandMines.moveHorizontalStartingIn 4
+pop temp 0
+goto NandMines.43
+label NandMines.42
+push argument 2
+push constant 0
+eq
+not
+if-goto NandMines.46
+call Model.getRows 0
+push constant 1
+sub
+pop argument 2
+goto NandMines.47
+label NandMines.46
+push argument 2
+push constant 1
+sub
+pop argument 2
+label NandMines.47
+push pointer 0
+call Model.getColumns 0
+push argument 2
+push argument 3
+call NandMines.moveHorizontalStartingIn 4
+pop temp 0
+label NandMines.43
+push constant 0
+return
+function NandMines.moveVertical 0
+push argument 0
+pop pointer 0
+push pointer 0
+push this 2
+push this 3
+push argument 1
+call NandMines.moveVerticalStartingIn 4
+pop temp 0
+push constant 0
+return
+function NandMines.moveVerticalStartingIn 2
+push argument 0
+pop pointer 0
+push this 1
+not
+if-goto NandMines.48
+push constant 0
+return
+goto NandMines.49
+label NandMines.48
+label NandMines.49
+push argument 3
+not
+if-goto NandMines.50
+push argument 2
+push constant 1
+add
+pop local 1
+goto NandMines.51
+label NandMines.50
+push argument 2
+push constant 1
+sub
+pop local 1
+label NandMines.51
+label NandMines.52
+push local 1
+call Model.getRows 0
+lt
+push local 1
+push constant 1
+neg
+gt
+and
+not
+if-goto NandMines.53
+push this 0
+push argument 1
+push local 1
+call Model.getSquare 3
+pop local 0
+push local 0
+call Square.isHidden 1
+not
+if-goto NandMines.54
+push pointer 0
+push this 2
+push this 3
+call NandMines.paintSquare 3
+pop temp 0
+push argument 1
+pop this 2
+push local 1
+pop this 3
+push pointer 0
+call NandMines.paintSelected 1
+pop temp 0
+push constant 0
+return
+goto NandMines.55
+label NandMines.54
+label NandMines.55
+push argument 3
+not
+if-goto NandMines.56
+push local 1
+push constant 1
+add
+pop local 1
+goto NandMines.57
+label NandMines.56
+push local 1
+push constant 1
+sub
+pop local 1
+label NandMines.57
+goto NandMines.52
+label NandMines.53
+push argument 3
+not
+if-goto NandMines.58
+push argument 1
+call Model.getColumns 0
+push constant 1
+sub
+eq
+not
+if-goto NandMines.60
+push constant 0
+pop argument 1
+goto NandMines.61
+label NandMines.60
+push argument 1
+push constant 1
+add
+pop argument 1
+label NandMines.61
+push pointer 0
+push argument 1
+push constant 1
+neg
+push argument 3
+call NandMines.moveVerticalStartingIn 4
+pop temp 0
+goto NandMines.59
+label NandMines.58
+push argument 1
+push constant 0
+eq
+not
+if-goto NandMines.62
+call Model.getColumns 0
+push constant 1
+sub
+pop argument 1
+goto NandMines.63
+label NandMines.62
+push argument 1
+push constant 1
+sub
+pop argument 1
+label NandMines.63
+push pointer 0
+push argument 1
+call Model.getRows 0
+push argument 3
+call NandMines.moveVerticalStartingIn 4
+pop temp 0
+label NandMines.59
+push constant 0
+return
+function NandMines.toggleFlag 1
+push argument 0
+pop pointer 0
+push this 1
+not
+if-goto NandMines.64
+push constant 0
+return
+goto NandMines.65
+label NandMines.64
+label NandMines.65
+push this 0
+push this 2
+push this 3
+call Model.getSquare 3
+pop local 0
+push local 0
+push local 0
+call Square.isFlag 1
+not
+call Square.setFlag 2
+pop temp 0
+push local 0
+call Square.isFlag 1
+not
+if-goto NandMines.66
+push this 4
+push constant 1
+add
+pop this 4
+goto NandMines.67
+label NandMines.66
+push this 4
+push constant 1
+sub
+pop this 4
+label NandMines.67
+push this 4
+push this 0
+call Model.getBombs 1
+call View.showLocatedBombsMessage 2
+pop temp 0
+push pointer 0
+call NandMines.paintSelected 1
+pop temp 0
+push pointer 0
+call NandMines.checkComplete 1
+pop temp 0
+push constant 0
+return
+function NandMines.clearSquare 2
+push argument 0
+pop pointer 0
+push this 1
+not
+if-goto NandMines.68
+push constant 0
+return
+goto NandMines.69
+label NandMines.68
+label NandMines.69
+push this 0
+push this 2
+push this 3
+call Model.getSquare 3
+pop local 1
+push local 1
+push constant 0
+eq
+not
+if-goto NandMines.70
+push constant 0
+return
+goto NandMines.71
+label NandMines.70
+label NandMines.71
+push local 1
+push constant 0
+call Square.setHidden 2
+pop temp 0
+push this 5
+push constant 1
+sub
+pop this 5
+push local 1
+call Square.isFlag 1
+not
+if-goto NandMines.72
+push this 4
+push constant 1
+sub
+pop this 4
+goto NandMines.73
+label NandMines.72
+label NandMines.73
+push local 1
+call Square.isBomb 1
+not
+if-goto NandMines.74
+push constant 0
+not
+pop this 1
+push static 3
+call View.showMessage 1
+pop temp 0
+push pointer 0
+call NandMines.paintSquares 1
+pop temp 0
+goto NandMines.75
+label NandMines.74
+push pointer 0
+push this 2
+push this 3
+call NandMines.paintSquare 3
+pop temp 0
+push pointer 0
+call NandMines.clearBlanks 1
+pop temp 0
+push pointer 0
+call NandMines.checkComplete 1
+pop temp 0
+label NandMines.75
+push constant 0
+return
+function NandMines.checkComplete 0
+push argument 0
+pop pointer 0
+push this 5
+push this 4
+eq
+push this 5
+push this 0
+call Model.getBombs 1
+eq
+and
+not
+if-goto NandMines.76
+push constant 0
+not
+pop this 1
+push static 4
+call View.showMessage 1
+pop temp 0
+goto NandMines.77
+label NandMines.76
+label NandMines.77
+push constant 0
+return
+function NandMines.clearBlanks 5
+push argument 0
+pop pointer 0
+call Model.getRows 0
+call Model.getColumns 0
+call Math.multiply 2
+call Array.new 1
+pop local 4
+push constant 0
+pop local 0
+label NandMines.78
+push local 0
+call Model.getRows 0
+call Model.getColumns 0
+call Math.multiply 2
+lt
+not
+if-goto NandMines.79
+push local 0
+push local 4
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 0
+push constant 1
+add
+pop local 0
+goto NandMines.78
+label NandMines.79
+push this 2
+pop local 0
+push this 3
+pop local 1
+push this 0
+push local 0
+push local 1
+call Model.getSquare 3
+pop local 2
+call LinkedList.new 0
+pop local 3
+push local 3
+push local 2
+call Square.getId 1
+call LinkedList.addLast 2
+pop temp 0
+label NandMines.80
+push local 3
+call LinkedList.getSize 1
+push constant 0
+gt
+not
+if-goto NandMines.81
+push this 0
+push local 3
+call LinkedList.removeFirst 1
+call Model.getSquareById 2
+pop local 2
+push local 2
+push constant 0
+eq
+not
+not
+if-goto NandMines.82
+push local 2
+call Square.isFlag 1
+not
+not
+if-goto NandMines.84
+push local 2
+call Square.getId 1
+push local 4
+add
+pop pointer 1
+push that 0
+not
+not
+if-goto NandMines.86
+push local 2
+call Square.getId 1
+push local 4
+add
+push constant 0
+not
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 2
+call Square.isBomb 1
+not
+not
+if-goto NandMines.88
+push local 2
+call Square.getId 1
+call Model.getColumn 1
+pop local 0
+push local 2
+call Square.getId 1
+call Model.getRow 1
+pop local 1
+push local 2
+call Square.isHidden 1
+not
+if-goto NandMines.90
+push local 2
+push constant 0
+call Square.setHidden 2
+pop temp 0
+push this 5
+push constant 1
+sub
+pop this 5
+goto NandMines.91
+label NandMines.90
+label NandMines.91
+push pointer 0
+push local 0
+push local 1
+call NandMines.paintSquare 3
+pop temp 0
+push pointer 0
+push local 0
+push local 1
+call NandMines.getMines 3
+push constant 0
+eq
+not
+if-goto NandMines.92
+push local 3
+push local 0
+push constant 1
+sub
+push local 1
+push constant 1
+sub
+call Model.getId 2
+call LinkedList.addLast 2
+pop temp 0
+push local 3
+push local 0
+push constant 1
+sub
+push local 1
+call Model.getId 2
+call LinkedList.addLast 2
+pop temp 0
+push local 3
+push local 0
+push constant 1
+sub
+push local 1
+push constant 1
+add
+call Model.getId 2
+call LinkedList.addLast 2
+pop temp 0
+push local 3
+push local 0
+push local 1
+push constant 1
+sub
+call Model.getId 2
+call LinkedList.addLast 2
+pop temp 0
+push local 3
+push local 0
+push local 1
+push constant 1
+add
+call Model.getId 2
+call LinkedList.addLast 2
+pop temp 0
+push local 3
+push local 0
+push constant 1
+add
+push local 1
+push constant 1
+sub
+call Model.getId 2
+call LinkedList.addLast 2
+pop temp 0
+push local 3
+push local 0
+push constant 1
+add
+push local 1
+call Model.getId 2
+call LinkedList.addLast 2
+pop temp 0
+push local 3
+push local 0
+push constant 1
+add
+push local 1
+push constant 1
+add
+call Model.getId 2
+call LinkedList.addLast 2
+pop temp 0
+goto NandMines.93
+label NandMines.92
+label NandMines.93
+goto NandMines.89
+label NandMines.88
+label NandMines.89
+goto NandMines.87
+label NandMines.86
+label NandMines.87
+goto NandMines.85
+label NandMines.84
+label NandMines.85
+goto NandMines.83
+label NandMines.82
+label NandMines.83
+goto NandMines.80
+label NandMines.81
+push local 3
+call LinkedList.dispose 1
+pop temp 0
+push local 4
+call Array.dispose 1
+pop temp 0
+push constant 0
+return
+function NandMines.getMines 2
+push argument 0
+pop pointer 0
+push constant 0
+pop local 1
+push this 0
+push argument 1
+push constant 1
+sub
+push argument 2
+push constant 1
+sub
+call Model.getSquare 3
+pop local 0
+push local 0
+push constant 0
+eq
+not
+not
+if-goto NandMines.94
+push local 0
+call Square.isBomb 1
+not
+if-goto NandMines.96
+push local 1
+push constant 1
+add
+pop local 1
+goto NandMines.97
+label NandMines.96
+label NandMines.97
+goto NandMines.95
+label NandMines.94
+label NandMines.95
+push this 0
+push argument 1
+push constant 1
+sub
+push argument 2
+call Model.getSquare 3
+pop local 0
+push local 0
+push constant 0
+eq
+not
+not
+if-goto NandMines.98
+push local 0
+call Square.isBomb 1
+not
+if-goto NandMines.100
+push local 1
+push constant 1
+add
+pop local 1
+goto NandMines.101
+label NandMines.100
+label NandMines.101
+goto NandMines.99
+label NandMines.98
+label NandMines.99
+push this 0
+push argument 1
+push constant 1
+sub
+push argument 2
+push constant 1
+add
+call Model.getSquare 3
+pop local 0
+push local 0
+push constant 0
+eq
+not
+not
+if-goto NandMines.102
+push local 0
+call Square.isBomb 1
+not
+if-goto NandMines.104
+push local 1
+push constant 1
+add
+pop local 1
+goto NandMines.105
+label NandMines.104
+label NandMines.105
+goto NandMines.103
+label NandMines.102
+label NandMines.103
+push this 0
+push argument 1
+push argument 2
+push constant 1
+sub
+call Model.getSquare 3
+pop local 0
+push local 0
+push constant 0
+eq
+not
+not
+if-goto NandMines.106
+push local 0
+call Square.isBomb 1
+not
+if-goto NandMines.108
+push local 1
+push constant 1
+add
+pop local 1
+goto NandMines.109
+label NandMines.108
+label NandMines.109
+goto NandMines.107
+label NandMines.106
+label NandMines.107
+push this 0
+push argument 1
+push argument 2
+push constant 1
+add
+call Model.getSquare 3
+pop local 0
+push local 0
+push constant 0
+eq
+not
+not
+if-goto NandMines.110
+push local 0
+call Square.isBomb 1
+not
+if-goto NandMines.112
+push local 1
+push constant 1
+add
+pop local 1
+goto NandMines.113
+label NandMines.112
+label NandMines.113
+goto NandMines.111
+label NandMines.110
+label NandMines.111
+push this 0
+push argument 1
+push constant 1
+add
+push argument 2
+push constant 1
+sub
+call Model.getSquare 3
+pop local 0
+push local 0
+push constant 0
+eq
+not
+not
+if-goto NandMines.114
+push local 0
+call Square.isBomb 1
+not
+if-goto NandMines.116
+push local 1
+push constant 1
+add
+pop local 1
+goto NandMines.117
+label NandMines.116
+label NandMines.117
+goto NandMines.115
+label NandMines.114
+label NandMines.115
+push this 0
+push argument 1
+push constant 1
+add
+push argument 2
+call Model.getSquare 3
+pop local 0
+push local 0
+push constant 0
+eq
+not
+not
+if-goto NandMines.118
+push local 0
+call Square.isBomb 1
+not
+if-goto NandMines.120
+push local 1
+push constant 1
+add
+pop local 1
+goto NandMines.121
+label NandMines.120
+label NandMines.121
+goto NandMines.119
+label NandMines.118
+label NandMines.119
+push this 0
+push argument 1
+push constant 1
+add
+push argument 2
+push constant 1
+add
+call Model.getSquare 3
+pop local 0
+push local 0
+push constant 0
+eq
+not
+not
+if-goto NandMines.122
+push local 0
+call Square.isBomb 1
+not
+if-goto NandMines.124
+push local 1
+push constant 1
+add
+pop local 1
+goto NandMines.125
+label NandMines.124
+label NandMines.125
+goto NandMines.123
+label NandMines.122
+label NandMines.123
+push local 1
+return
+function NandMines.paintSelected 1
+push argument 0
+pop pointer 0
+push this 1
+not
+if-goto NandMines.126
+push constant 0
+return
+goto NandMines.127
+label NandMines.126
+label NandMines.127
+push this 0
+push this 2
+push this 3
+call Model.getSquare 3
+pop local 0
+push local 0
+call Square.isFlag 1
+not
+if-goto NandMines.128
+push this 2
+push this 3
+call View.getSquarePosition 2
+call View.drawFlagSelected 1
+pop temp 0
+goto NandMines.129
+label NandMines.128
+push this 2
+push this 3
+call View.getSquarePosition 2
+call View.drawSelected 1
+pop temp 0
+label NandMines.129
+push constant 0
+return
+function NandMines.paintSquares 2
+push argument 0
+pop pointer 0
+push constant 0
+pop local 0
+label NandMines.130
+push local 0
+call Model.getColumns 0
+lt
+not
+if-goto NandMines.131
+push constant 0
+pop local 1
+label NandMines.132
+push local 1
+call Model.getRows 0
+lt
+not
+if-goto NandMines.133
+push pointer 0
+push local 0
+push local 1
+call NandMines.paintSquare 3
+pop temp 0
+push local 1
+push constant 1
+add
+pop local 1
+goto NandMines.132
+label NandMines.133
+push local 0
+push constant 1
+add
+pop local 0
+goto NandMines.130
+label NandMines.131
+push constant 0
+return
+function NandMines.paintSquare 2
+push argument 0
+pop pointer 0
+push this 0
+push constant 0
+eq
+not
+if-goto NandMines.134
+push constant 0
+return
+goto NandMines.135
+label NandMines.134
+label NandMines.135
+push this 0
+push argument 1
+push argument 2
+call Model.getSquare 3
+pop local 1
+push local 1
+push constant 0
+eq
+not
+if-goto NandMines.136
+push constant 0
+return
+goto NandMines.137
+label NandMines.136
+label NandMines.137
+push local 1
+call Square.isHidden 1
+not
+if-goto NandMines.138
+push this 1
+not
+if-goto NandMines.140
+push local 1
+call Square.isFlag 1
+not
+if-goto NandMines.142
+push local 1
+call Square.isBomb 1
+not
+if-goto NandMines.144
+push argument 1
+push argument 2
+call View.getSquarePosition 2
+call View.drawFlag 1
+pop temp 0
+push constant 0
+return
+goto NandMines.145
+label NandMines.144
+push argument 1
+push argument 2
+call View.getSquarePosition 2
+call View.drawFail 1
+pop temp 0
+push constant 0
+return
+label NandMines.145
+goto NandMines.143
+label NandMines.142
+push local 1
+call Square.isBomb 1
+not
+if-goto NandMines.146
+push argument 1
+push argument 2
+call View.getSquarePosition 2
+call View.drawMine 1
+pop temp 0
+push constant 0
+return
+goto NandMines.147
+label NandMines.146
+push argument 1
+push argument 2
+call View.getSquarePosition 2
+call View.drawHidden 1
+pop temp 0
+push constant 0
+return
+label NandMines.147
+label NandMines.143
+goto NandMines.141
+label NandMines.140
+push local 1
+call Square.isFlag 1
+not
+if-goto NandMines.148
+push argument 1
+push argument 2
+call View.getSquarePosition 2
+call View.drawFlag 1
+pop temp 0
+push constant 0
+return
+goto NandMines.149
+label NandMines.148
+push argument 1
+push argument 2
+call View.getSquarePosition 2
+call View.drawHidden 1
+pop temp 0
+push constant 0
+return
+label NandMines.149
+label NandMines.141
+goto NandMines.139
+label NandMines.138
+push local 1
+call Square.isBomb 1
+not
+if-goto NandMines.150
+push argument 1
+push argument 2
+call View.getSquarePosition 2
+call View.drawExplosion 1
+pop temp 0
+push constant 0
+return
+goto NandMines.151
+label NandMines.150
+label NandMines.151
+push pointer 0
+push argument 1
+push argument 2
+call NandMines.getMines 3
+pop local 0
+push local 0
+push constant 0
+eq
+not
+if-goto NandMines.152
+push argument 1
+push argument 2
+call View.getSquarePosition 2
+call View.drawBlank 1
+pop temp 0
+push constant 0
+return
+goto NandMines.153
+label NandMines.152
+label NandMines.153
+push local 0
+push constant 1
+eq
+not
+if-goto NandMines.154
+push argument 1
+push argument 2
+call View.getSquarePosition 2
+call View.draw1 1
+pop temp 0
+push constant 0
+return
+goto NandMines.155
+label NandMines.154
+label NandMines.155
+push local 0
+push constant 2
+eq
+not
+if-goto NandMines.156
+push argument 1
+push argument 2
+call View.getSquarePosition 2
+call View.draw2 1
+pop temp 0
+push constant 0
+return
+goto NandMines.157
+label NandMines.156
+label NandMines.157
+push local 0
+push constant 3
+eq
+not
+if-goto NandMines.158
+push argument 1
+push argument 2
+call View.getSquarePosition 2
+call View.draw3 1
+pop temp 0
+push constant 0
+return
+goto NandMines.159
+label NandMines.158
+label NandMines.159
+push local 0
+push constant 4
+eq
+not
+if-goto NandMines.160
+push argument 1
+push argument 2
+call View.getSquarePosition 2
+call View.draw4 1
+pop temp 0
+push constant 0
+return
+goto NandMines.161
+label NandMines.160
+label NandMines.161
+push local 0
+push constant 5
+eq
+not
+if-goto NandMines.162
+push argument 1
+push argument 2
+call View.getSquarePosition 2
+call View.draw5 1
+pop temp 0
+push constant 0
+return
+goto NandMines.163
+label NandMines.162
+label NandMines.163
+push local 0
+push constant 6
+eq
+not
+if-goto NandMines.164
+push argument 1
+push argument 2
+call View.getSquarePosition 2
+call View.draw6 1
+pop temp 0
+push constant 0
+return
+goto NandMines.165
+label NandMines.164
+label NandMines.165
+push local 0
+push constant 7
+eq
+not
+if-goto NandMines.166
+push argument 1
+push argument 2
+call View.getSquarePosition 2
+call View.draw7 1
+pop temp 0
+push constant 0
+return
+goto NandMines.167
+label NandMines.166
+label NandMines.167
+push local 0
+push constant 8
+eq
+not
+if-goto NandMines.168
+push argument 1
+push argument 2
+call View.getSquarePosition 2
+call View.draw8 1
+pop temp 0
+push constant 0
+return
+goto NandMines.169
+label NandMines.168
+label NandMines.169
+label NandMines.139
+push constant 0
+return
+function NandMines.dispose 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return
